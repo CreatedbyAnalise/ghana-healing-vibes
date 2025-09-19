@@ -24,7 +24,7 @@ const Hero = () => {
 
       {/* Content */}
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center lg:text-left">
+        <div className="w-full text-center">
           <div className="inline-flex items-center space-x-2 bg-secondary/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6 animate-fade-in">
             <Leaf className="w-5 h-5 text-secondary" />
             <span className="text-sm font-inter font-medium text-primary-foreground">
