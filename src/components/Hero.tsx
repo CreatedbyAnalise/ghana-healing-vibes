@@ -37,12 +37,12 @@ const Hero = () => {
             <span className="block text-secondary">Natural Balance</span>
           </h1>
 
-          <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto lg:mx-0 animate-fade-in-up">
+          <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto animate-fade-in-up">
             Experience the healing power of traditional Ghanaian naturopathy combined with modern wellness practices. 
             Discover your path to holistic health and spiritual harmony.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in-up justify-center lg:justify-start">
+          <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in-up justify-center">
             <Button
               onClick={scrollToContact}
               className="btn-hero text-lg px-8 py-4 group"
