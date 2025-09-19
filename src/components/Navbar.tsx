@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import MobileNavbar from './MobileNavbar';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,11 +28,16 @@ const Navbar = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    setIsMenuOpen(false); // Close menu after clicking
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'bg-background/95 backdrop-blur-sm shadow-elegant'
           : 'bg-transparent'
@@ -46,34 +52,49 @@ const Navbar = () => {
             </span>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          {/* Toggle Menu Button */}
+          <button
+            onClick={toggleMenu}
+            className={`p-2 rounded-lg transition-colors duration-300 ${
+              isScrolled ? 'text-foreground hover:bg-muted' : 'text-primary-foreground hover:bg-white/10'
+            }`}
+          >
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
+        </div>
+
+        {/* Toggle Navigation Menu */}
+        <nav
+          className={`mt-4 transition-all duration-300 ease-in-out ${
+            isMenuOpen 
+              ? 'max-h-96 opacity-100 visible' 
+              : 'max-h-0 opacity-0 invisible overflow-hidden'
+          }`}
+        >
+          <div className="flex flex-col space-y-4 bg-background/95 backdrop-blur-sm rounded-2xl p-6 shadow-elegant">
             {navItems.map((item) => (
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className={`font-inter font-medium transition-colors duration-300 hover:text-secondary ${
-                  isScrolled ? 'text-foreground' : 'text-primary-foreground'
-                }`}
+                className="font-inter font-medium text-left py-2 px-4 rounded-lg transition-colors duration-300 hover:bg-muted hover:text-secondary text-foreground"
               >
                 {item.label}
               </button>
             ))}
-          </nav>
-
-          {/* CTA Button & Mobile Menu */}
-          <div className="flex items-center space-x-4">
+            
+            {/* CTA Button in Menu */}
             <Button
               onClick={() => scrollToSection('#contact')}
-              className={`hidden md:inline-flex ${
-                isScrolled ? 'btn-hero' : 'btn-outline-hero'
-              }`}
+              className="btn-hero mt-4"
             >
               Book Consultation
             </Button>
-            <MobileNavbar />
           </div>
-        </div>
+        </nav>
       </div>
     </header>
   );
