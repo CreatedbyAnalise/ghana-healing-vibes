@@ -70,7 +70,7 @@ const Hero = () => {
         </div>
 
         {/* Feature Cards - Below Hero Content */}
-        <div className="grid md:grid-cols-3 gap-6 mt-16 animate-fade-in">
+        <div className="grid md:grid-cols-3 gap-6 mt-16 mb-16 animate-fade-in">
           <div className="bg-card/10 backdrop-blur-sm border border-primary-foreground/20 rounded-2xl p-6 hover:bg-card/20 transition-all duration-300 scale-on-hover">
             <Heart className="w-12 h-12 text-secondary mb-4" />
             <h3 className="text-xl font-playfair font-semibold text-primary-foreground mb-2">
