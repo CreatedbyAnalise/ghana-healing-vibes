@@ -24,7 +24,7 @@ const Hero = () => {
 
       {/* Content */}
       <div className="container mx-auto px-6 relative z-10">
-        <div className="w-full text-center">
+        <div className="w-full text-center pt-32 lg:pt-40">
           <h1 className="text-5xl lg:text-7xl font-playfair font-bold text-primary-foreground mb-6 leading-tight animate-fade-in-up">
             Restore Your
             <span className="block text-secondary">Natural Balance</span>
